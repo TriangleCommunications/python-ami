@@ -142,8 +142,8 @@ class AMIClient(object):
         return future
 
     def send(self, pack):
-        self._socket.send(bytearray(unicode(pack) + '\r\n', self.encoding))
-        # self._socket.send(bytearray(str(pack) + '\r\n', self.encoding))
+        # self._socket.send(bytearray(unicode(pack) + '\r\n', self.encoding))
+        self._socket.send(bytearray(str(pack) + '\r\n', self.encoding))
 
     def _decode_pack(self, pack):
         return pack.decode(self.encoding,errors=self.encoding_errors)
